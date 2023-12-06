@@ -26,7 +26,6 @@ start_server() {
 
 	start-stop-daemon --start \
 		--startas /srv/bitbake/bin/bitbake-prserv \
-		--oknodo \
 		--pidfile "${prserver_pidfile}" \
 		--user bitbake \
 		python /srv/bitbake/bin/bitbake-prserv \

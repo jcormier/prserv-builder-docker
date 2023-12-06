@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  bitbake-prserver:
+    build: ./
+    volumes:
+      - ./data:/var/prserver
+    environment:
+      - PRSERVER_HOST=0.0.0.0
+      - PRSERVER_PORT=8585
+    ports:
+      - "8585:8585"
