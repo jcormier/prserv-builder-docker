@@ -1,4 +1,5 @@
-FROM python:3
+# 3.8 required for older bitbake versions
+FROM python:3.8
 
 ARG PRSERVER_BB_REF=2022-04.11-kirkstone
 ARG PRSERVER_BB_REMOTE=git://git.openembedded.org/bitbake

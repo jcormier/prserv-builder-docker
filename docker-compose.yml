@@ -8,5 +8,23 @@ services:
     environment:
       - PRSERVER_HOST=0.0.0.0
       - PRSERVER_PORT=8585
+      - VERBOSE=true
     ports:
       - "8585:8585"
+
+# The newer prserver is not compatible with the older bitbake versions
+# atleast 2022-04.11-kirkstone throws errors with dunfell builds
+# hardknott is before they switched to asyncio which seems to be were the bug was introduced
+  bitbake-prserver-prekirkstone:
+    build: 
+      context: ./
+      args:
+        - PRSERVER_BB_REF=2021-04-hardknott
+    volumes:
+      - ./data_prekirkstone:/var/prserver
+    environment:
+      - PRSERVER_HOST=0.0.0.0
+      - PRSERVER_PORT=8584
+      - VERBOSE=true
+    ports:
+      - "8584:8584"
