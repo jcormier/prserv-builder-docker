@@ -28,3 +28,14 @@ services:
       - VERBOSE=true
     ports:
       - "8584:8584"
+
+  bitbake-hashserv:
+    build: ./hashserv/
+    volumes:
+      - ./hashserv-data:/var/hashserv
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8686
+      - LOGLEVEL=debug
+    ports:
+      - "8686:8686"
