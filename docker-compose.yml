@@ -2,7 +2,7 @@ version: '3'
 
 services:
   bitbake-prserver:
-    build: ./
+    build: ./prserv/
     volumes:
       - ./data:/var/prserver
     environment:
@@ -17,7 +17,7 @@ services:
 # hardknott is before they switched to asyncio which seems to be were the bug was introduced
   bitbake-prserver-prekirkstone:
     build: 
-      context: ./
+      context: ./prserv/
       args:
         - PRSERVER_BB_REF=2021-04-hardknott
     volumes:
